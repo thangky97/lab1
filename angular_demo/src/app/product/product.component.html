@@ -1,0 +1,95 @@
+<!-- <div class="container">
+    {{productForm.value | json}}
+</div>
+<div class="container">
+    {{newProduct | json}}
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-12">
+            <form #productForm="ngForm" (ngSubmit)="onSubmit(productForm.value)">
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Tên sp" [(ngModel)]="newProduct.name" name="name">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Mô tả sp" [(ngModel)]="newProduct.description" name="description">
+                </div>
+                <div class="form-group">
+                    <input type="text" class="form-control" placeholder="Giá sp" [(ngModel)]="newProduct.price" name="price">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-primary" >Tạo mới</button>
+                    <button type="submit" class="btn btn-success" >Sửa</button>
+                </div>
+            </form>
+        </div>
+        <div class="col-lg-6 col-md-12">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên sp</th>
+                        <th>mo ta</th>
+                        <th>gia</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngSubmit="let item">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.description}}</td>
+                        <td>{{item.price}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+</div> -->
+
+-----------------------------------------
+<div class="container" >
+    <div class="row">
+      <div class="col-lg-6 col-md-12">
+        <form #productForm="ngForm" (ngSubmit)="onSubmit(newproduct)">
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="Name" name="name" [(ngModel)]="newproduct.name">
+          </div>
+          <div class="form-group">
+            <input type="text" class="form-control" placeholder="description" name="description"
+              [(ngModel)]="newproduct.description">
+          </div>
+          <div class="form-group">
+            <input type="number" class="form-control" placeholder="price" name="price" [(ngModel)]="newproduct.price">
+          </div>
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+      </div>
+  
+      <div class="col-lg-6 col-md-12">
+        <table class="table table-hover">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Tên</th>
+              <th>Mô tả</th>
+              <th>Giá</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of product1">
+               <td>{{product.id}}</td>
+               <td>{{product.name}}</td>
+  
+              <td>{{product.description}}</td>
+              <td>{{product.price}}</td>
+              <td>
+                <button type="button" class="btn btn-danger" (click)="edit(product)">Sửa</button>
+                <button type="button" class="btn btn-success" (click)="remove(product.id)">Xóa</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
